@@ -1,0 +1,46 @@
+<h4>Formularios Template<small> tipo </small></h4>
+<hr>
+<form autocomplete="off" (ngSubmit)="guardar(forman)" #forman="ngForm">
+
+    <div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
+
+                <input class="form-control is-invalid text-danger" [class.is-invalid]="nombre.invalid && nombre.touched" type="text" placeholder="Nombre" name="nombre" [ngModel]="usuario.nombre" required minlength="5" #nombre="ngModel">
+                <small *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Ingrese 5 letrinis</small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col-8">
+                <input class="form-control is-invalid text-danger" [class.is-invalid]="apellido.invalid && apellido.touched" type="text" placeholder="Apellido" name="apellido" [ngModel]="usuario.apellido" required #apellido="ngModel">
+                <small *ngIf="apellido.invalid && apellido.touched" class="form-text text-danger">Ingrese 5 letrinis</small>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-8">
+            <input class="form-control is-invalid text-danger" [class.is-invalid]="email.invalid && email.touched" type="text" placeholder="Correo electrónico" name="email" [ngModel]="usuario.email" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+            <small *ngIf="email.invalid && email.touched" class="form-text text-danger">Es obligatorio.</small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" class="btn btn-outline-primary btn-block">
+        Guardar
+      </button>
+        </div>
+    </div>
+
+</form>
